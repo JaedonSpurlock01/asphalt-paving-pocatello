@@ -1,6 +1,4 @@
 ---
-export const prerender = false;
-
 import LeadForm from "../components/LeadForm.astro";
 import InternalLinks from "../components/InternalLinks.astro";
 import { business, hours } from "../data/site";
@@ -9,7 +7,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const title = "Contact Pocatello Paving Contractor | Free Asphalt Estimate";
 const description =
   "Request a free estimate from a Pocatello paving contractor — driveway paving, parking lots, pothole repair, crack sealing, and sealcoating. Call (208) 775-8900.";
-const error = Astro.url.searchParams.get("error");
 ---
 
 <BaseLayout title={title} description={description}>
@@ -40,7 +37,7 @@ const error = Astro.url.searchParams.get("error");
       <div class="border border-carbon/10 bg-linen p-5 md:p-6">
         <h2 class="text-2xl font-bold">Project details</h2>
         <div class="mt-4">
-          <LeadForm error={error} />
+          <LeadForm showClientErrors />
         </div>
       </div>
     </div>

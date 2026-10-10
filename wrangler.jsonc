@@ -10,7 +10,9 @@
     "directory": "./dist",
     "binding": "ASSETS"
   },
+  // Both vars must live here (or deploy wipes dashboard-only values). LEAD_DELIVERY_EMAIL = owner real inbox.
   "vars": {
+    "LEAD_DELIVERY_EMAIL": "spurjae@gmail.com",
     "LEAD_NOTIFY_EMAIL": "spurjae@gmail.com"
   },
   "send_email": [

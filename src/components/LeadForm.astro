@@ -2,25 +2,34 @@
 import { serviceOptions } from "../data/site";
 
 interface Props {
-  error?: string | null;
+  /** Read ?error= from the URL after redirect (contact page is prerendered). */
+  showClientErrors?: boolean;
 }
 
-const { error = null } = Astro.props;
-
-const message =
-  error === "1"
-    ? "Check every field. Use a real email, a phone number, a size in square feet, and one of the listed services."
-    : error === "send"
-      ? "We could not send that request from the site. Call us and we will take the project details by phone."
-      : null;
+const { showClientErrors = false } = Astro.props;
 ---
 
 <form class="space-y-4" action="/api/lead" method="POST">
+  <p id="lead-form-error" class="hidden border border-carbon bg-sun/40 px-3 py-2 text-sm" role="alert"></p>
   {
-    message && (
-      <p class="border border-carbon bg-sun/40 px-3 py-2 text-sm" role="alert">
-        {message}
-      </p>
+    showClientErrors && (
+      <script is:inline>
+        {`(function () {
+  var params = new URLSearchParams(window.location.search);
+  var code = params.get("error");
+  if (!code) return;
+  var el = document.getElementById("lead-form-error");
+  if (!el) return;
+  var text =
+    code === "1"
+      ? "Check every field. Use a real email, a phone number, a size in square feet, and one of the listed services."
+      : code === "config"
+        ? "Lead delivery is not configured on the server (LEAD_DELIVERY_EMAIL). Call us instead."
+        : "We could not send that request from the site. Call us and we will take the project details by phone.";
+  el.textContent = text;
+  el.classList.remove("hidden");
+})();`}
+      </script>
     )
   }
   <div class="absolute left-[-9999px] h-0 w-0 overflow-hidden" aria-hidden="true">

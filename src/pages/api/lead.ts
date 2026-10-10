@@ -1,3 +1,4 @@
+import { env as workerEnv } from "cloudflare:workers";
 import type { APIRoute } from "astro";
 import { business, serviceOptions } from "../../data/site";
 
@@ -22,9 +23,29 @@ function escapeHtml(value: string) {
     .replace(/"/g, "&quot;");
 }
 
-function envEmail(locals: App.Locals, key: "LEAD_DELIVERY_EMAIL" | "LEAD_NOTIFY_EMAIL") {
-  const value = locals.runtime?.env?.[key];
-  return typeof value === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()) ? value.trim() : "";
+function readEnv(key: "LEAD_DELIVERY_EMAIL" | "LEAD_NOTIFY_EMAIL", locals: App.Locals): string {
+  const raw =
+    locals.runtime?.env?.[key] ??
+    (workerEnv as Record<string, unknown>)[key];
+  return typeof raw === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(raw.trim()) ? raw.trim() : "";
+}
+
+function leadMailBinding(locals: App.Locals) {
+  const mail = locals.runtime?.env?.LEAD_EMAIL ?? (workerEnv as { LEAD_EMAIL?: unknown }).LEAD_EMAIL;
+  if (!mail || typeof mail !== "object" || !("send" in mail) || typeof mail.send !== "function") {
+    return undefined;
+  }
+  return mail as {
+    send: (message: {
+      from: string | { name: string; email: string };
+      to?: string | { name: string; email: string };
+      bcc?: string | { name: string; email: string };
+      subject: string;
+      replyTo?: string | { name: string; email: string };
+      text?: string;
+      html?: string;
+    }) => Promise<unknown>;
+  };
 }
 
 export const POST: APIRoute = async ({ request, redirect, locals }) => {
@@ -56,21 +77,16 @@ export const POST: APIRoute = async ({ request, redirect, locals }) => {
     return redirect("/contact/?error=1", 303);
   }
 
-  const mail = locals.runtime?.env?.LEAD_EMAIL as
-    | {
-        send: (message: {
-          from: string | { name: string; email: string };
-          to?: string | { name: string; email: string };
-          subject: string;
-          replyTo?: string | { name: string; email: string };
-          text?: string;
-          html?: string;
-        }) => Promise<unknown>;
-      }
-    | undefined;
-
-  if (!mail?.send) {
+  const mail = leadMailBinding(locals);
+  if (!mail) {
     return redirect("/contact/?error=send", 303);
+  }
+
+  const deliveryEmail = readEnv("LEAD_DELIVERY_EMAIL", locals);
+  const notifyEmail = readEnv("LEAD_NOTIFY_EMAIL", locals);
+
+  if (!deliveryEmail) {
+    return redirect("/contact/?error=config", 303);
   }
 
   const subject = `New paving lead: ${service}`;
@@ -95,13 +111,6 @@ export const POST: APIRoute = async ({ request, redirect, locals }) => {
     `<li><strong>Approx. size:</strong> ${escapeHtml(sizeNumber.toLocaleString("en-US"))} sq ft</li>`,
     "</ul>",
   ].join("");
-
-  const deliveryEmail = envEmail(locals, "LEAD_DELIVERY_EMAIL");
-  const notifyEmail = envEmail(locals, "LEAD_NOTIFY_EMAIL");
-
-  if (!deliveryEmail) {
-    return redirect("/contact/?error=send", 303);
-  }
 
   try {
     await mail.send({
