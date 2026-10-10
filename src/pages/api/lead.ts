@@ -22,6 +22,11 @@ function escapeHtml(value: string) {
     .replace(/"/g, "&quot;");
 }
 
+function envEmail(locals: App.Locals, key: "LEAD_DELIVERY_EMAIL" | "LEAD_NOTIFY_EMAIL") {
+  const value = locals.runtime?.env?.[key];
+  return typeof value === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()) ? value.trim() : "";
+}
+
 export const POST: APIRoute = async ({ request, redirect, locals }) => {
   const form = await request.formData();
 
@@ -91,10 +96,18 @@ export const POST: APIRoute = async ({ request, redirect, locals }) => {
     "</ul>",
   ].join("");
 
+  const deliveryEmail = envEmail(locals, "LEAD_DELIVERY_EMAIL");
+  const notifyEmail = envEmail(locals, "LEAD_NOTIFY_EMAIL");
+
+  if (!deliveryEmail) {
+    return redirect("/contact/?error=send", 303);
+  }
+
   try {
     await mail.send({
       from: { name: business.name, email: business.email },
-      to: business.email,
+      to: deliveryEmail,
+      ...(notifyEmail ? { bcc: notifyEmail } : {}),
       replyTo: { name, email },
       subject,
       text,

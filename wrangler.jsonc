@@ -1,7 +1,18 @@
 {
-  "name": "pocatello-asphalt-paving",
-  "compatibility_date": "2026-10-09",
+  // Must match the Worker name in Cloudflare Workers Builds / dashboard (do not use package.json name).
+  "name": "asphalt-paving-pocatello",
+  "compatibility_date": "2026-10-10",
   "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "main": "./dist/_worker.js/index.js",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "vars": {
+    "LEAD_NOTIFY_EMAIL": "spurjae@gmail.com"
+  },
   "send_email": [
     {
       "name": "LEAD_EMAIL",
