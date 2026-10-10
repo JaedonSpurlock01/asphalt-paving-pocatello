@@ -1,0 +1,67 @@
+---
+import { serviceOptions } from "../data/site";
+
+interface Props {
+  error?: string | null;
+}
+
+const { error = null } = Astro.props;
+
+const message =
+  error === "1"
+    ? "Check every field. Use a real email, a phone number, a size in square feet, and one of the listed services."
+    : error === "send"
+      ? "We could not send that request from the site. Call us and we will take the project details by phone."
+      : null;
+---
+
+<form class="space-y-4" action="/api/lead" method="POST">
+  {
+    message && (
+      <p class="border border-carbon bg-sun/40 px-3 py-2 text-sm" role="alert">
+        {message}
+      </p>
+    )
+  }
+  <div class="absolute left-[-9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+    <label>
+      Company website
+      <input type="text" name="company_website" tabindex="-1" autocomplete="off" />
+    </label>
+  </div>
+  <div>
+    <label class="mb-1 block text-sm font-semibold" for="size">Approximate size (Sq Ft) of Project</label>
+    <input
+      class="w-full border border-carbon/20 bg-white px-3 py-3 text-base"
+      id="size"
+      name="size"
+      type="number"
+      inputmode="numeric"
+      min="1"
+      step="1"
+      required
+      autocomplete="off"
+    />
+  </div>
+  <div>
+    <label class="mb-1 block text-sm font-semibold" for="service">Services needed</label>
+    <select class="w-full border border-carbon/20 bg-white px-3 py-3 text-base" id="service" name="service" required>
+      <option value="" disabled selected>Select a service</option>
+      {serviceOptions.map((option) => <option value={option}>{option}</option>)}
+    </select>
+  </div>
+  <div>
+    <label class="mb-1 block text-sm font-semibold" for="name">Name</label>
+    <input class="w-full border border-carbon/20 bg-white px-3 py-3 text-base" id="name" name="name" type="text" required autocomplete="name" maxlength="80" />
+  </div>
+  <div>
+    <label class="mb-1 block text-sm font-semibold" for="phone">Phone</label>
+    <input class="w-full border border-carbon/20 bg-white px-3 py-3 text-base" id="phone" name="phone" type="tel" required autocomplete="tel" maxlength="30" />
+  </div>
+  <div>
+    <label class="mb-1 block text-sm font-semibold" for="email">Email</label>
+    <input class="w-full border border-carbon/20 bg-white px-3 py-3 text-base" id="email" name="email" type="email" required autocomplete="email" maxlength="120" />
+  </div>
+  <button class="w-full bg-sun px-4 py-3 text-base font-bold text-carbon" type="submit">Request a Free Estimate</button>
+  <p class="text-sm text-graphite">Quotes are free. We reply during posted hours.</p>
+</form>

@@ -1,0 +1,12 @@
+{
+  "name": "pocatello-asphalt-paving",
+  "compatibility_date": "2026-10-09",
+  "compatibility_flags": ["nodejs_compat"],
+  "send_email": [
+    {
+      "name": "LEAD_EMAIL",
+      "destination_address": "info@pocatelloasphaltpaving.com",
+      "allowed_sender_addresses": ["info@pocatelloasphaltpaving.com"]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import drivewayImg from "../assets/photos/asphalt-paving-driveaway.webp";
+import lotImg from "../assets/photos/asphalt-parking-lot.webp";
+import roadImg from "../assets/photos/asphalt-paving.jpg";
+import repairImg from "../assets/photos/asphalt-repair.webp";
+import sealImg from "../assets/photos/asphalt-sealcoating.webp";
+import processImg from "../assets/photos/asphalt-paving-header.jpg";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  name: "driveway" | "lot" | "road" | "repair" | "seal" | "process";
+  label: string;
+  loading?: "lazy" | "eager";
+}
+
+const { name, label, loading = "lazy" } = Astro.props;
+
+const images: Record<Props["name"], ImageMetadata> = {
+  driveway: drivewayImg,
+  lot: lotImg,
+  road: roadImg,
+  repair: repairImg,
+  seal: sealImg,
+  process: processImg,
+};
+
+const src = images[name];
+---
+
+<figure>
+  <Image
+    src={src}
+    alt={label}
+    width={src.width}
+    height={src.height}
+    loading={loading}
+    class="block h-auto w-full"
+  />
+</figure>

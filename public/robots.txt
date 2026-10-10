@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pocatelloasphaltpaving.com/sitemap-index.xml

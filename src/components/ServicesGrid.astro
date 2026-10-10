@@ -1,0 +1,99 @@
+---
+import Diagram from "./Diagram.astro";
+import { services } from "../data/services";
+
+const blurbs: Record<string, { heading: string; paragraphs: string[]; link: string }> = {
+  "asphalt-driveway-paving": {
+    heading: "Asphalt Driveway Paving",
+    paragraphs: [
+      "A Pocatello driveway carries the same car in the same wheel path every day, then takes a plow blade all winter. Asphalt driveway paving replaces gravel, broken concrete, or tired blacktop with a surface you can park on and clear.",
+      "We build new drives, full replacements, and overlays when the existing mat is still stable. Residential driveway paving and blacktop driveway work include slope and the garage joint, because meltwater that sits against the foundation cracks the apron by spring.",
+    ],
+    link: "Asphalt driveway paving in Pocatello",
+  },
+  "asphalt-parking-lot": {
+    heading: "Asphalt Parking Lot Paving",
+    paragraphs: [
+      "A parking lot fails in the drive aisle and the dumpster pad, not in the empty stalls. Commercial parking lot paving covers shops, offices, churches, and apartments that need drainage, parking lot repair, and a surface you can stripe.",
+      "We separate a cosmetic sealcoat from sections that need milling or a new base. The estimate names which areas are full depth and which can take an overlay, so the lot can stay open for customers.",
+    ],
+    link: "Asphalt parking lot paving in Pocatello",
+  },
+  "asphalt-roads": {
+    heading: "Asphalt Roads",
+    paragraphs: [
+      "Private asphalt roads and shared lanes need a compacted base sized for the trucks that actually use them. A thin mat on soft soil prints cracks through the surface at the first spring thaw.",
+      "Private road paving covers approaches, shared lanes, and gravel conversions in Pocatello. The quote includes truck access, a closure window, and the thickness that traffic requires.",
+    ],
+    link: "Asphalt roads in Pocatello",
+  },
+  "asphalt-repair": {
+    heading: "Asphalt Repair",
+    paragraphs: [
+      "Asphalt repair fits one pothole, a utility cut, or a plow gouge in pavement that still has life. A map of cracks across the whole drive is a replacement, and we say that on site instead of selling a patch that will not last the winter.",
+      "We saw-cut clean limits, rebuild the base under the patch, and roll hot-mix so the joint does not ravel. Pothole repair, asphalt patching, and crack sealing come before any sealcoat.",
+    ],
+    link: "Asphalt repair in Pocatello",
+  },
+  "asphalt-sealcoating": {
+    heading: "Asphalt Sealcoating",
+    paragraphs: [
+      "Sealcoating protects cured asphalt from sun, water, and winter deicers. It is maintenance, not a structural fix, and it does not belong on fresh mix.",
+      "Asphalt sealcoating and seal coat cycles protect cured pavement. New Pocatello pavements typically wait a full season, often 6 to 12 months, before a sealer. We fill cracks and patch broken areas first, then keep traffic off the coating until it can take tires.",
+    ],
+    link: "Asphalt sealcoating in Pocatello",
+  },
+};
+
+const photos: Record<string, { name: "driveway" | "lot" | "road" | "repair" | "seal"; label: string }> = {
+  "asphalt-driveway-paving": {
+    name: "driveway",
+    label: "Driveway paving in a Pocatello residential setting",
+  },
+  "asphalt-parking-lot": {
+    name: "lot",
+    label: "Parking lot paving with a marked drive aisle",
+  },
+  "asphalt-roads": {
+    name: "road",
+    label: "Private asphalt road with a compacted section",
+  },
+  "asphalt-repair": {
+    name: "repair",
+    label: "Saw-cut asphalt repair inside sound pavement",
+  },
+  "asphalt-sealcoating": {
+    name: "seal",
+    label: "Sealcoat over cured asphalt and compacted base",
+  },
+};
+---
+
+<ul class="mt-10 space-y-10">
+  {
+    services.map((service, index) => {
+      const photo = photos[service.slug];
+      const copy = blurbs[service.slug];
+      const imageFirst = index % 2 === 1;
+      return (
+        <li class="grid items-center gap-6 md:grid-cols-2 md:gap-10">
+          <div class:list={[imageFirst && "md:order-2"]}>
+            <h3 class="text-2xl font-bold">{copy.heading}</h3>
+            {copy.paragraphs.map((paragraph) => (
+              <p class="mt-3 text-graphite">{paragraph}</p>
+            ))}
+            <a
+              class="mt-5 inline-block font-semibold underline decoration-sun decoration-2 underline-offset-4"
+              href={`/services/${service.slug}`}
+            >
+              {copy.link}
+            </a>
+          </div>
+          <div class:list={[imageFirst && "md:order-1"]}>
+            <Diagram name={photo.name} label={photo.label} />
+          </div>
+        </li>
+      );
+    })
+  }
+</ul>
