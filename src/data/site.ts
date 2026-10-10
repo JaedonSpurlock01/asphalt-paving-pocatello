@@ -1,40 +1,9 @@
-export const business = {
-  name: "Pocatello Asphalt Paving",
-  phoneDisplay: "(208) 775-8900",
-  phoneTel: "+12087758900",
-  email: "info@pocatelloasphaltpaving.com",
-  city: "Pocatello",
-  region: "ID",
-  regionName: "Idaho",
-  country: "US",
-  url: "https://pocatelloasphaltpaving.com",
-  latitude: "42.8713",
-  longitude: "-112.4455",
-  priceRange: "$$",
-  serviceAreaLabel: "Pocatello, Idaho",
-};
+import config from "virtual:site";
 
-export const socials = [
-  { name: "Facebook", href: "https://www.facebook.com" },
-  { name: "Instagram", href: "https://www.instagram.com" },
-  { name: "Twitter", href: "https://twitter.com" },
-  { name: "YouTube", href: "https://www.youtube.com" },
-] as const;
-
-export const hours = [
-  { days: "Monday–Friday", time: "9 AM–6 PM" },
-  { days: "Saturday", time: "9 AM–4 PM" },
-  { days: "Sunday", time: "Closed" },
-];
-
-export const serviceOptions = [
-  "Asphalt Driveway Paving",
-  "Asphalt Parking Lot",
-  "Asphalt Roads",
-  "Asphalt Repair",
-  "Asphalt Sealcoating",
-  "Other",
-] as const;
+export const business = config.business;
+export const socials = config.socials;
+export const hours = config.hours;
+export const serviceOptions = config.serviceOptions;
 
 export type ServiceOption = (typeof serviceOptions)[number];
 

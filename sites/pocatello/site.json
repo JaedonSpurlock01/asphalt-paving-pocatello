@@ -1,0 +1,40 @@
+{
+  "id": "pocatello",
+  "cloudflareProject": "asphalt-paving-pocatello",
+  "leadDeliveryEmail": "spurjae@gmail.com",
+  "leadNotifyEmail": "spurjae@gmail.com",
+  "business": {
+    "name": "Pocatello Asphalt Paving",
+    "phoneDisplay": "(208) 775-8900",
+    "phoneTel": "+12087758900",
+    "email": "info@pocatelloasphaltpaving.com",
+    "city": "Pocatello",
+    "region": "ID",
+    "regionName": "Idaho",
+    "country": "US",
+    "url": "https://pocatelloasphaltpaving.com",
+    "latitude": "42.8713",
+    "longitude": "-112.4455",
+    "priceRange": "$$",
+    "serviceAreaLabel": "Pocatello, Idaho"
+  },
+  "socials": [
+    { "name": "Facebook", "href": "https://www.facebook.com" },
+    { "name": "Instagram", "href": "https://www.instagram.com" },
+    { "name": "Twitter", "href": "https://twitter.com" },
+    { "name": "YouTube", "href": "https://www.youtube.com" }
+  ],
+  "hours": [
+    { "days": "Monday–Friday", "time": "9 AM–6 PM" },
+    { "days": "Saturday", "time": "9 AM–4 PM" },
+    { "days": "Sunday", "time": "Closed" }
+  ],
+  "serviceOptions": [
+    "Asphalt Driveway Paving",
+    "Asphalt Parking Lot",
+    "Asphalt Roads",
+    "Asphalt Repair",
+    "Asphalt Sealcoating",
+    "Other"
+  ]
+}

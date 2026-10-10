@@ -1,12 +1,14 @@
 {
-  "name": "pocatello-asphalt-paving",
+  "name": "asphalt-paving-sites",
   "type": "module",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "sync-config": "node scripts/sync-config.mjs",
+    "build": "node scripts/sync-config.mjs && astro build",
+    "preview": "astro preview",
+    "deploy": "node scripts/deploy.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.13",

@@ -1,0 +1,40 @@
+{
+  "id": "city-name",
+  "cloudflareProject": "asphalt-paving-city-name",
+  "leadDeliveryEmail": "owner@example.com",
+  "leadNotifyEmail": "you@example.com",
+  "business": {
+    "name": "City Asphalt Paving",
+    "phoneDisplay": "(208) 000-0000",
+    "phoneTel": "+12080000000",
+    "email": "info@example.com",
+    "city": "City",
+    "region": "ID",
+    "regionName": "Idaho",
+    "country": "US",
+    "url": "https://example.com",
+    "latitude": "0",
+    "longitude": "0",
+    "priceRange": "$$",
+    "serviceAreaLabel": "City, Idaho"
+  },
+  "socials": [
+    { "name": "Facebook", "href": "https://www.facebook.com" },
+    { "name": "Instagram", "href": "https://www.instagram.com" },
+    { "name": "Twitter", "href": "https://twitter.com" },
+    { "name": "YouTube", "href": "https://www.youtube.com" }
+  ],
+  "hours": [
+    { "days": "Monday–Friday", "time": "9 AM–6 PM" },
+    { "days": "Saturday", "time": "9 AM–4 PM" },
+    { "days": "Sunday", "time": "Closed" }
+  ],
+  "serviceOptions": [
+    "Asphalt Driveway Paving",
+    "Asphalt Parking Lot",
+    "Asphalt Roads",
+    "Asphalt Repair",
+    "Asphalt Sealcoating",
+    "Other"
+  ]
+}
