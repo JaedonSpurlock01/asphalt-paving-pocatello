@@ -18,8 +18,17 @@
   "send_email": [
     {
       "name": "LEAD_EMAIL",
-      "destination_address": "info@pocatelloasphaltpaving.com",
-      "allowed_sender_addresses": ["info@pocatelloasphaltpaving.com"]
+      "allowed_sender_addresses": ["info@pocatelloasphaltpaving.com"],
+      "allowed_destination_addresses": [
+        "info@pocatelloasphaltpaving.com",
+        "spurjae@gmail.com"
+      ]
     }
-  ]
+  ],
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    }
+  }
 }

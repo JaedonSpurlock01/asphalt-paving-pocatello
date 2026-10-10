@@ -74,19 +74,19 @@ export const POST: APIRoute = async ({ request, redirect, locals }) => {
     sizeNumber < 10000000;
 
   if (!valid) {
-    return redirect("/contact/?error=1", 303);
+    return redirect("/contact/?error=1#error-fields", 303);
   }
 
   const mail = leadMailBinding(locals);
   if (!mail) {
-    return redirect("/contact/?error=send", 303);
+    return redirect("/contact/?error=bind#error-bind", 303);
   }
 
   const deliveryEmail = readEnv("LEAD_DELIVERY_EMAIL", locals);
   const notifyEmail = readEnv("LEAD_NOTIFY_EMAIL", locals);
 
   if (!deliveryEmail) {
-    return redirect("/contact/?error=config", 303);
+    return redirect("/contact/?error=config#error-config", 303);
   }
 
   const subject = `New paving lead: ${service}`;
@@ -112,18 +112,22 @@ export const POST: APIRoute = async ({ request, redirect, locals }) => {
     "</ul>",
   ].join("");
 
+  const bcc =
+    notifyEmail && notifyEmail.toLowerCase() !== deliveryEmail.toLowerCase() ? notifyEmail : undefined;
+
   try {
     await mail.send({
       from: { name: business.name, email: business.email },
       to: deliveryEmail,
-      ...(notifyEmail ? { bcc: notifyEmail } : {}),
+      ...(bcc ? { bcc } : {}),
       replyTo: { name, email },
       subject,
       text,
       html,
     });
-  } catch {
-    return redirect("/contact/?error=send", 303);
+  } catch (error) {
+    console.error("LEAD_EMAIL send failed:", error);
+    return redirect("/contact/?error=send#error-send", 303);
   }
 
   return redirect("/thank-you", 303);
