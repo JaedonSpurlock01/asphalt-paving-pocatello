@@ -3,6 +3,22 @@
   "cloudflareProject": "asphalt-paving-pocatello",
   "leadDeliveryEmail": "spurjae@gmail.com",
   "leadNotifyEmail": "spurjae@gmail.com",
+  "market": {
+    "climateLabel": "Portneuf Valley freeze-thaw",
+    "climateSummary": "Cold winters, plow traffic, and spring thaw make drainage and a compacted base critical.",
+    "pavingSeason": "late spring through early fall"
+  },
+  "assets": {
+    "logoLight": "src/assets/logo-light.png",
+    "logoDark": "src/assets/logo-dark.png",
+    "hero": "src/assets/hero-pocatello-paving.jpg",
+    "driveway": "src/assets/photos/asphalt-paving-driveaway.webp",
+    "lot": "src/assets/photos/asphalt-parking-lot.webp",
+    "road": "src/assets/photos/asphalt-paving.jpg",
+    "repair": "src/assets/photos/asphalt-repair.webp",
+    "seal": "src/assets/photos/asphalt-sealcoating.webp",
+    "process": "src/assets/photos/asphalt-paving-header.jpg"
+  },
   "business": {
     "name": "Pocatello Asphalt Paving",
     "phoneDisplay": "(208) 775-8900",

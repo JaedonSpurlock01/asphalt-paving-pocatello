@@ -1,11 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import drivewayImg from "../assets/photos/asphalt-paving-driveaway.webp";
-import lotImg from "../assets/photos/asphalt-parking-lot.webp";
-import roadImg from "../assets/photos/asphalt-paving.jpg";
-import repairImg from "../assets/photos/asphalt-repair.webp";
-import sealImg from "../assets/photos/asphalt-sealcoating.webp";
-import processImg from "../assets/photos/asphalt-paving-header.jpg";
+import siteAssets from "virtual:site-assets";
 import type { ImageMetadata } from "astro";
 
 interface Props {
@@ -17,12 +12,12 @@ interface Props {
 const { name, label, loading = "lazy" } = Astro.props;
 
 const images: Record<Props["name"], ImageMetadata> = {
-  driveway: drivewayImg,
-  lot: lotImg,
-  road: roadImg,
-  repair: repairImg,
-  seal: sealImg,
-  process: processImg,
+  driveway: siteAssets.driveway,
+  lot: siteAssets.lot,
+  road: siteAssets.road,
+  repair: siteAssets.repair,
+  seal: siteAssets.seal,
+  process: siteAssets.process,
 };
 
 const src = images[name];

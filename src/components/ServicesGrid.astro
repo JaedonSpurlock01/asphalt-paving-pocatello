@@ -1,15 +1,17 @@
 ---
 import Diagram from "./Diagram.astro";
+import config from "virtual:site";
+import { business } from "../data/site";
 import { services } from "../data/services";
 
 const blurbs: Record<string, { heading: string; paragraphs: string[]; link: string }> = {
   "asphalt-driveway-paving": {
     heading: "Asphalt Driveway Paving",
     paragraphs: [
-      "A Pocatello driveway carries the same car in the same wheel path every day, then takes a plow blade all winter. Asphalt driveway paving replaces gravel, broken concrete, or tired blacktop with a surface you can park on and clear.",
-      "We build new drives, full replacements, and overlays when the existing mat is still stable. Residential driveway paving and blacktop driveway work include slope and the garage joint, because meltwater that sits against the foundation cracks the apron by spring.",
+      `A ${business.city} driveway carries repeated wheel loads while ${config.market.climateLabel} works on the surface. Asphalt driveway paving replaces gravel, broken concrete, or tired blacktop with a smooth, durable entrance.`,
+      "We build new drives, full replacements, and overlays when the existing mat is stable. Residential paving includes slope and the garage joint because standing water weakens the apron and base.",
     ],
-    link: "Asphalt driveway paving in Pocatello",
+    link: `Asphalt driveway paving in ${business.city}`,
   },
   "asphalt-parking-lot": {
     heading: "Asphalt Parking Lot Paving",
@@ -17,38 +19,38 @@ const blurbs: Record<string, { heading: string; paragraphs: string[]; link: stri
       "A parking lot fails in the drive aisle and the dumpster pad, not in the empty stalls. Commercial parking lot paving covers shops, offices, churches, and apartments that need drainage, parking lot repair, and a surface you can stripe.",
       "We separate a cosmetic sealcoat from sections that need milling or a new base. The estimate names which areas are full depth and which can take an overlay, so the lot can stay open for customers.",
     ],
-    link: "Asphalt parking lot paving in Pocatello",
+    link: `Asphalt parking lot paving in ${business.city}`,
   },
   "asphalt-roads": {
     heading: "Asphalt Roads",
     paragraphs: [
-      "Private asphalt roads and shared lanes need a compacted base sized for the trucks that actually use them. A thin mat on soft soil prints cracks through the surface at the first spring thaw.",
-      "Private road paving covers approaches, shared lanes, and gravel conversions in Pocatello. The quote includes truck access, a closure window, and the thickness that traffic requires.",
+      "Private asphalt roads and shared lanes need a compacted base sized for the trucks that use them. A thin mat on soft soil prints cracks through the surface under traffic.",
+      `Private road paving covers approaches, shared lanes, and gravel conversions in ${business.city}. The quote includes truck access, a closure window, and traffic-appropriate thickness.`,
     ],
-    link: "Asphalt roads in Pocatello",
+    link: `Asphalt roads in ${business.city}`,
   },
   "asphalt-repair": {
     heading: "Asphalt Repair",
     paragraphs: [
-      "Asphalt repair fits one pothole, a utility cut, or a plow gouge in pavement that still has life. A map of cracks across the whole drive is a replacement, and we say that on site instead of selling a patch that will not last the winter.",
+      "Asphalt repair fits a pothole, utility cut, or settled patch in pavement that still has life. Widespread alligator cracking usually means replacement, and we say that instead of selling a short-lived patch.",
       "We saw-cut clean limits, rebuild the base under the patch, and roll hot-mix so the joint does not ravel. Pothole repair, asphalt patching, and crack sealing come before any sealcoat.",
     ],
-    link: "Asphalt repair in Pocatello",
+    link: `Asphalt repair in ${business.city}`,
   },
   "asphalt-sealcoating": {
     heading: "Asphalt Sealcoating",
     paragraphs: [
-      "Sealcoating protects cured asphalt from sun, water, and winter deicers. It is maintenance, not a structural fix, and it does not belong on fresh mix.",
-      "Asphalt sealcoating and seal coat cycles protect cured pavement. New Pocatello pavements typically wait a full season, often 6 to 12 months, before a sealer. We fill cracks and patch broken areas first, then keep traffic off the coating until it can take tires.",
+      "Sealcoating protects cured asphalt from UV, oxidation, and water. It is maintenance, not a structural fix, and it does not belong on fresh mix.",
+      `Sealcoating is especially relevant under ${config.market.climateLabel}. We fill cracks and patch broken areas first, then keep traffic off the coating until it cures.`,
     ],
-    link: "Asphalt sealcoating in Pocatello",
+    link: `Asphalt sealcoating in ${business.city}`,
   },
 };
 
 const photos: Record<string, { name: "driveway" | "lot" | "road" | "repair" | "seal"; label: string }> = {
   "asphalt-driveway-paving": {
     name: "driveway",
-    label: "Driveway paving in a Pocatello residential setting",
+    label: `Driveway paving in a ${business.city} residential setting`,
   },
   "asphalt-parking-lot": {
     name: "lot",

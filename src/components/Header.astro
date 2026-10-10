@@ -13,7 +13,7 @@ const serviceActive = path.startsWith("/services");
     <a href="/" class="flex items-center gap-3 leading-tight">
       <Logo class="h-12 w-auto" />
       <span>
-        <span class="block text-xs font-semibold tracking-[0.18em] text-graphite uppercase">Pocatello</span>
+        <span class="block text-xs font-semibold tracking-[0.18em] text-graphite uppercase">{business.city}</span>
         <span class="block text-lg font-bold text-carbon">Asphalt Paving</span>
       </span>
     </a>
@@ -23,11 +23,11 @@ const serviceActive = path.startsWith("/services");
       </svg>
       {business.phoneDisplay}
     </a>
-    <a class="tracking-phone hidden items-center gap-1.5 text-sm font-semibold text-carbon sm:inline-flex" href="https://maps.google.com/?q=Pocatello, ID" target="_blank" rel="noopener noreferrer">
+    <a class="hidden items-center gap-1.5 text-sm font-semibold text-carbon sm:inline-flex" href={`https://maps.google.com/?q=${encodeURIComponent(`${business.city}, ${business.region}`)}`} target="_blank" rel="noopener noreferrer">
       <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
         <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>
       </svg>
-      Location: Pocatello, ID
+      Location: {business.city}, {business.region}
     </a>
     <input id="nav-toggle" type="checkbox" />
     <label for="nav-toggle" class="cursor-pointer border border-carbon px-3 py-2 text-sm font-semibold md:hidden">Menu</label>

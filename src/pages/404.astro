@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { business } from "../data/site";
 
-const title = "Page not found | Pocatello Asphalt Paving";
-const description = "That page is not on the Pocatello Asphalt Paving site.";
+const title = `Page not found | ${business.name}`;
+const description = `That page is not on the ${business.name} site.`;
 ---
 
 <BaseLayout title={title} description={description} noindex={true}>
@@ -10,7 +11,7 @@ const description = "That page is not on the Pocatello Asphalt Paving site.";
     <div class="mx-auto max-w-3xl px-5">
       <h1 class="text-4xl font-bold">That page is not here</h1>
       <p class="mt-4">Use the menu or go back to the homepage to request a paving estimate.</p>
-      <a class="mt-6 inline-block font-semibold underline decoration-sun decoration-2 underline-offset-4" href="/">Pocatello asphalt paving</a>
+      <a class="mt-6 inline-block font-semibold underline decoration-sun decoration-2 underline-offset-4" href="/">{business.city} asphalt paving</a>
     </div>
   </section>
 </BaseLayout>

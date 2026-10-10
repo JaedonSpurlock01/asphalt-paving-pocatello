@@ -4,16 +4,16 @@ import InternalLinks from "../components/InternalLinks.astro";
 import { business, hours } from "../data/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const title = "Contact Pocatello Paving Contractor | Free Asphalt Estimate";
+const title = `Contact ${business.city} Paving Contractor | Free Asphalt Estimate`;
 const description =
-  "Request a free estimate from a Pocatello paving contractor — driveway paving, parking lots, pothole repair, crack sealing, and sealcoating. Call (208) 775-8900.";
+  `Request a free estimate from a ${business.city} paving contractor — driveways, parking lots, pothole repair, crack sealing, and sealcoating. Call ${business.phoneDisplay}.`;
 ---
 
 <BaseLayout title={title} description={description}>
   <section class="bg-white py-16 md:py-24">
     <div class="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-2">
       <div>
-        <h1 class="text-4xl font-bold">Request a free asphalt estimate in Pocatello</h1>
+        <h1 class="text-4xl font-bold">Request a free asphalt estimate in {business.city}</h1>
         <p class="mt-5 text-lg">
           Quotes are 100% free. Tell us the approximate size and the service — driveway paving, parking lot paving, pothole repair, crack sealing, sealcoating, or private road paving. An estimator follows up during business hours.
         </p>
@@ -23,7 +23,7 @@ const description =
         </p>
         <h2 class="mt-8 text-2xl font-bold">Service area</h2>
         <p class="mt-3">{business.serviceAreaLabel}</p>
-        <p class="mt-2 text-sm text-graphite">Service is limited to Pocatello, Idaho. No street address is published because estimates happen on your property. The same paving contractor team handles requests from Google Maps, phone, and this contact form.</p>
+        <p class="mt-2 text-sm text-graphite">Service is limited to {business.serviceAreaLabel}. No street address is published because estimates happen on your property. The same paving contractor team handles requests from Google Maps, phone, and this contact form.</p>
         <h2 class="mt-8 text-2xl font-bold">Hours</h2>
         <ul class="mt-3 space-y-2">
           {hours.map((row) => (

@@ -1,11 +1,12 @@
 ---
+import config from "virtual:site";
 import { business, values } from "../data/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import InternalLinks from "../components/InternalLinks.astro";
 
-const title = "About Pocatello Asphalt Paving";
+const title = `About ${business.name}`;
 const description =
-  "Pocatello paving contractor and asphalt contractor for driveway paving, parking lot paving, pothole repair, crack sealing, and sealcoating in Pocatello, Idaho.";
+  `${business.city} paving contractor for driveway paving, parking lots, pothole repair, crack sealing, and sealcoating in ${business.serviceAreaLabel}.`;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -13,16 +14,16 @@ const description =
     <div class="mx-auto max-w-3xl px-5">
       <h1 class="text-4xl font-bold">About {business.name}</h1>
       <p class="mt-6">
-        We are a Pocatello paving company and asphalt paving contractor for people who live and work in the city. The company exists to replace guesswork with a written plan: what comes out, what goes down, how water leaves the surface, and when you can drive on it.
+        We are a {business.city} paving company and asphalt contractor for people who live and work in the city. The company exists to replace guesswork with a written plan: what comes out, what goes down, how water leaves the surface, and when you can drive on it.
       </p>
       <p class="mt-4">
-        Southeast Idaho is a hard place for pavement. Freeze-thaw, plow blades, and summer sun expose thin work quickly. We would rather explain a base repair on the estimate than pave over a soft spot and return in April to look at the same crack. That stance is the whole story. The crew, the mix, and the schedule exist to support it.
+        {config.market.climateSummary} We would rather explain base repair on the estimate than pave over a soft spot and return to the same crack. The crew, mix, and schedule exist to support a durable pavement section.
       </p>
       <p class="mt-4">
         Homeowners call about asphalt driveway paving and blacktop that has gone to gravel at the apron. Property managers call about commercial parking lot paving and parking lot repair when aisles pond in front of the door. Lane owners call for private road paving when a lane can no longer be graded into shape. Each of those jobs starts with a free on-site visit and a square-foot count you can check.
       </p>
       <p class="mt-4">
-        We do not invent a longer history than we have, and we do not publish reviews we did not earn. Judge the work by the size, the edges, and whether the site is clean when we leave. If you want the service list first, return to the <a class="font-semibold underline decoration-sun decoration-2 underline-offset-4" href="/">Pocatello asphalt paving</a> homepage.
+        We do not invent a longer history than we have, and we do not publish reviews we did not earn. Judge the work by the scope, edges, and whether the site is clean when we leave. If you want the service list first, return to the <a class="font-semibold underline decoration-sun decoration-2 underline-offset-4" href="/">{business.city} asphalt paving</a> homepage.
       </p>
     </div>
   </section>
@@ -51,7 +52,7 @@ const description =
         </p>
         <h2 class="text-2xl font-bold">Excellence against a hard climate</h2>
         <p>
-          Local weather is the standard. A pavement that looks fine in a mild city can fail in Pocatello if it holds water. We treat drainage, edge support, and a realistic sealcoat schedule as part of doing the job well, beyond the minimum of “cover it in black.”
+          Local weather is the standard. Pavement can fail in {business.city} when it holds water or lacks edge support. We treat drainage and a realistic maintenance schedule as part of doing the job well, beyond “cover it in black.”
         </p>
         <h2 class="text-2xl font-bold">Safety for the crew and the property</h2>
         <p>

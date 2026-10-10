@@ -1,0 +1,56 @@
+{
+  "id": "blackfoot",
+  "cloudflareProject": "asphalt-paving-blackfoot",
+  "leadDeliveryEmail": "spurjae@gmail.com",
+  "leadNotifyEmail": "spurjae@gmail.com",
+  "market": {
+    "climateLabel": "Snake River Plain freeze-thaw",
+    "climateSummary": "Freezing winters, warm dry summers, irrigation moisture, and spring thaw make drainage and a compacted base critical.",
+    "pavingSeason": "late spring through early fall"
+  },
+  "assets": {
+    "logoLight": "src/assets/sites/blackfoot/logo-light.png",
+    "logoDark": "src/assets/sites/blackfoot/logo-dark.png",
+    "hero": "src/assets/sites/blackfoot/hero.jpg",
+    "driveway": "src/assets/sites/blackfoot/driveway.jpg",
+    "lot": "src/assets/sites/blackfoot/parking-lot.jpg",
+    "road": "src/assets/sites/blackfoot/private-road.jpg",
+    "repair": "src/assets/sites/blackfoot/repair.jpg",
+    "seal": "src/assets/sites/blackfoot/sealcoating.jpg",
+    "process": "src/assets/sites/blackfoot/hero.jpg"
+  },
+  "business": {
+    "name": "Asphalt Paving Blackfoot",
+    "phoneDisplay": "(208) 782-7152",
+    "phoneTel": "+12087827152",
+    "email": "info@asphaltpavingblackfoot.com",
+    "city": "Blackfoot",
+    "region": "ID",
+    "regionName": "Idaho",
+    "country": "US",
+    "url": "https://asphaltpavingblackfoot.com",
+    "latitude": "43.1905",
+    "longitude": "-112.3450",
+    "priceRange": "$$",
+    "serviceAreaLabel": "Blackfoot, Idaho"
+  },
+  "socials": [
+    { "name": "Facebook", "href": "https://www.facebook.com" },
+    { "name": "Instagram", "href": "https://www.instagram.com" },
+    { "name": "Twitter", "href": "https://twitter.com" },
+    { "name": "YouTube", "href": "https://www.youtube.com" }
+  ],
+  "hours": [
+    { "days": "Monday–Friday", "time": "8 AM–5 PM" },
+    { "days": "Saturday", "time": "Closed" },
+    { "days": "Sunday", "time": "Closed" }
+  ],
+  "serviceOptions": [
+    "Asphalt Driveway Paving",
+    "Asphalt Parking Lot",
+    "Asphalt Roads",
+    "Asphalt Repair",
+    "Asphalt Sealcoating",
+    "Other"
+  ]
+}

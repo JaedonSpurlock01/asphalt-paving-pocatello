@@ -5,7 +5,12 @@ import { fileURLToPath } from "node:url";
 export const rootDir = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 export function siteId() {
-  const id = process.env.SITE?.trim() || "pocatello";
+  const id = process.env.SITE?.trim();
+  if (!id) {
+    throw new Error(
+      "SITE is required. Run commands with SITE=<site-id>, for example: SITE=pocatello npm run build",
+    );
+  }
   if (!/^[a-z0-9-]+$/.test(id)) {
     throw new Error(`Invalid SITE id "${id}". Use lowercase letters, numbers, and hyphens.`);
   }

@@ -46,7 +46,7 @@ import { serviceOptions } from "../data/site";
     </label>
   </div>
   <div>
-    <label class="mb-1 block text-sm font-semibold" for="size">Approximate size (Sq Ft) of Project</label>
+    <label class="mb-1 block cursor-pointer text-sm font-semibold" for="size">Approximate size (Sq Ft) of Project</label>
     <input
       class="w-full border border-carbon/20 bg-white px-3 py-3 text-base"
       id="size"
@@ -60,25 +60,25 @@ import { serviceOptions } from "../data/site";
     />
   </div>
   <div>
-    <label class="mb-1 block text-sm font-semibold" for="service">Services needed</label>
-    <select class="w-full border border-carbon/20 bg-white px-3 py-3 text-base" id="service" name="service" required>
+    <label class="mb-1 block cursor-pointer text-sm font-semibold" for="service">Services needed</label>
+    <select class="w-full cursor-pointer border border-carbon/20 bg-white px-3 py-3 text-base" id="service" name="service" required>
       <option value="" disabled selected>Select a service</option>
       {serviceOptions.map((option) => <option value={option}>{option}</option>)}
     </select>
   </div>
   <div>
-    <label class="mb-1 block text-sm font-semibold" for="name">Name</label>
+    <label class="mb-1 block cursor-pointer text-sm font-semibold" for="name">Name</label>
     <input class="w-full border border-carbon/20 bg-white px-3 py-3 text-base" id="name" name="name" type="text" required autocomplete="name" maxlength="80" />
   </div>
   <div>
-    <label class="mb-1 block text-sm font-semibold" for="phone">Phone</label>
+    <label class="mb-1 block cursor-pointer text-sm font-semibold" for="phone">Phone</label>
     <input class="w-full border border-carbon/20 bg-white px-3 py-3 text-base" id="phone" name="phone" type="tel" required autocomplete="tel" maxlength="30" />
   </div>
   <div>
-    <label class="mb-1 block text-sm font-semibold" for="email">Email</label>
+    <label class="mb-1 block cursor-pointer text-sm font-semibold" for="email">Email</label>
     <input class="w-full border border-carbon/20 bg-white px-3 py-3 text-base" id="email" name="email" type="email" required autocomplete="email" maxlength="120" />
   </div>
-  <button class="w-full bg-sun px-4 py-3 text-base font-bold text-carbon" type="submit">Request a Free Estimate</button>
+  <button class="w-full cursor-pointer bg-sun px-4 py-3 text-base font-bold text-carbon" type="submit">Request a Free Estimate</button>
   <p class="text-sm text-graphite">Quotes are free. We reply during posted hours.</p>
 </form>
 <style is:global>

@@ -22,6 +22,15 @@ declare module "virtual:site" {
     cloudflareProject: string;
     leadDeliveryEmail: string;
     leadNotifyEmail: string;
+    market: {
+      climateLabel: string;
+      climateSummary: string;
+      pavingSeason: string;
+    };
+    assets: Record<
+      "logoLight" | "logoDark" | "hero" | "driveway" | "lot" | "road" | "repair" | "seal" | "process",
+      string
+    > & { favicon?: string };
     business: SiteBusiness;
     socials: { name: string; href: string }[];
     hours: { days: string; time: string }[];
@@ -30,6 +39,21 @@ declare module "virtual:site" {
 
   const config: SiteConfig;
   export default config;
+}
+
+declare module "virtual:services" {
+  import type { ServicePage } from "./data/services";
+  export const services: ServicePage[];
+  export function getService(slug: string): ServicePage | undefined;
+}
+
+declare module "virtual:site-assets" {
+  import type { ImageMetadata } from "astro";
+  const assets: Record<
+    "logoLight" | "logoDark" | "hero" | "driveway" | "lot" | "road" | "repair" | "seal" | "process",
+    ImageMetadata
+  > & { favicon?: ImageMetadata };
+  export default assets;
 }
 
 type LeadEmailBinding = import("@cloudflare/workers-types").SendEmail;

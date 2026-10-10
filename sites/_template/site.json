@@ -3,6 +3,22 @@
   "cloudflareProject": "asphalt-paving-city-name",
   "leadDeliveryEmail": "owner@example.com",
   "leadNotifyEmail": "you@example.com",
+  "market": {
+    "climateLabel": "local weather",
+    "climateSummary": "Local temperatures, precipitation, and traffic patterns affect pavement performance.",
+    "pavingSeason": "the dry months when temperatures support proper placement and curing"
+  },
+  "assets": {
+    "logoLight": "src/assets/logo-light.png",
+    "logoDark": "src/assets/logo-dark.png",
+    "hero": "src/assets/hero-pocatello-paving.jpg",
+    "driveway": "src/assets/photos/asphalt-paving-driveaway.webp",
+    "lot": "src/assets/photos/asphalt-parking-lot.webp",
+    "road": "src/assets/photos/asphalt-paving.jpg",
+    "repair": "src/assets/photos/asphalt-repair.webp",
+    "seal": "src/assets/photos/asphalt-sealcoating.webp",
+    "process": "src/assets/photos/asphalt-paving-header.jpg"
+  },
   "business": {
     "name": "City Asphalt Paving",
     "phoneDisplay": "(208) 000-0000",

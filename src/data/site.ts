@@ -1,6 +1,7 @@
 import config from "virtual:site";
 
 export const business = config.business;
+export const market = config.market;
 export const socials = config.socials;
 export const hours = config.hours;
 export const serviceOptions = config.serviceOptions;
@@ -34,7 +35,7 @@ export const reasons = [
   },
   {
     title: "Top-Tier Materials",
-    text: "We pave with plant-mixed hot-mix asphalt and compacted base rock suited to southeast Idaho freeze-thaw, not a cold patch spread thin and left to ravel.",
+    text: `We pave with plant-mixed hot-mix asphalt and compacted base rock suited to ${market.climateLabel}, not a cold patch spread thin and left to ravel.`,
     icon: "layers",
   },
   {
@@ -54,7 +55,7 @@ export const reasons = [
   },
   {
     title: "Local Climate Experience",
-    text: "Portneuf Valley winters, plow blades, and spring thaw punish thin pavement. We build sections that can live with that weather instead of fighting it for one season.",
+    text: `${market.climateSummary} We build sections for local conditions instead of treating climate as an afterthought.`,
     icon: "sun",
   },
 ];
@@ -82,29 +83,29 @@ export type FaqItem = { question: string; answer: string };
 
 export const faqs: FaqItem[] = [
   {
-    question: "How much does asphalt paving cost in Pocatello?",
+    question: `How much does asphalt paving cost in ${business.city}?`,
     answer:
-      "Price follows square footage, thickness, access, and how much old pavement or soft soil has to come out. A simple overlay on a sound base costs less than a full-depth driveway on a steep Pocatello lot. Send the approximate size with your request and we will price the work after we see the ground. The visit and the written estimate are free.",
+      `Price follows square footage, thickness, access, and how much old pavement or soft soil has to come out. An overlay on a sound base costs less than full-depth replacement. Send the approximate size for your ${business.city} project and we will price the work after seeing the ground. The visit and written estimate are free.`,
   },
   {
-    question: "When is the best time to pave in southeast Idaho?",
+    question: `When is the best time to pave in ${business.city}?`,
     answer:
-      "Hot-mix needs a dry, firm base and air temperatures that let the mat compact before it cools. In the Portneuf Valley that window is typically late spring through early fall. We do not pave over frozen ground or during a soaking rain. If a cold snap is forecast, we move the pour rather than place a mat that cannot be rolled properly.",
+      `Hot-mix needs a dry, firm base and temperatures that support placement and compaction. In ${business.city}, workable conditions cover ${market.pavingSeason}. We postpone for rain, unsafe heat, or temperatures that prevent proper compaction and curing.`,
   },
   {
-    question: "Is asphalt cheaper than concrete for a Pocatello driveway?",
+    question: `Is asphalt cheaper than concrete for a ${business.city} driveway?`,
     answer:
-      "Asphalt usually costs less to install than a concrete driveway of the same size, and it can be milled and resurfaced later without replacing the whole section. Concrete can need fewer seal cycles, but it cracks in freeze-thaw too. We will tell you which surface fits the way you use the pavement, including plow traffic and parked vehicles.",
+      "Asphalt usually costs less to install than concrete of the same size, and it can be milled and resurfaced later without replacing the whole section. We explain which surface fits your traffic, drainage, sun exposure, and maintenance plan.",
   },
   {
-    question: "How long does an asphalt driveway last in Pocatello?",
+    question: `How long does an asphalt driveway last in ${business.city}?`,
     answer:
-      "A well-built driveway, with a compacted base and timely crack care, commonly serves 15 to 25 years in this climate. Plow blades, magnesium chloride, irrigation overspray, and standing water shorten that life. Sealcoating after the new mat has cured, plus crack fill before winter, is what keeps a good driveway from becoming a patchwork of potholes.",
+      `A well-built driveway with a compacted base and timely crack care commonly serves 15 to 25 years. ${market.climateSummary} Drainage, crack filling, and sealcoating after the mat has cured help extend its service life.`,
   },
   {
     question: "How soon can we drive on new asphalt?",
     answer:
-      "Passenger cars often return after the mat has cooled, commonly the next day in mild weather. Heavy trucks, trailers on jacks, and sharp turns from power steering while the surface is still tender can scar it. We give you a return-to-traffic time for your specific mix and the day’s temperature before we leave.",
+      "Passenger cars often return after the mat has cooled, commonly the next day. Heavy trucks, trailer jacks, and sharp power-steering turns can scar tender asphalt. We give you a project-specific return-to-traffic time before leaving.",
   },
   {
     question: "Do you sealcoat new asphalt the same week?",
@@ -114,12 +115,12 @@ export const faqs: FaqItem[] = [
   {
     question: "Where do you provide asphalt paving?",
     answer:
-      "We build and repair pavement in Pocatello, Idaho. Share the project address when you call or write so we can confirm the job fits our schedule and include any site access details in the written estimate.",
+      `We build and repair pavement in ${business.serviceAreaLabel}. Share the project address so we can confirm access and include site conditions in the written estimate.`,
   },
   {
-    question: "Do you repair potholes and seal cracks in Pocatello?",
+    question: `Do you repair potholes and seal cracks in ${business.city}?`,
     answer:
-      "Yes. We saw-cut patches for potholes, utility cuts, and plow damage, rebuild the base when it is soft, and roll hot-mix so the repair meets the surrounding pavement. Open cracks on sound asphalt can be routed and filled before sealcoating. If the surface is mapped with alligator cracking, we will quote replacement instead of patching.",
+      "Yes. We saw-cut patches for potholes and utility cuts, rebuild soft base, and compact hot-mix to meet the surrounding pavement. Open cracks in sound asphalt can be filled before sealcoating. Widespread alligator cracking usually calls for replacement instead of more patches.",
   },
   {
     question: "Can you repave an old blacktop driveway or pave over gravel?",
@@ -127,12 +128,12 @@ export const faqs: FaqItem[] = [
       "Often, yes. A mill-and-overlay or new mat over gravel works when drainage is good and the base compacts. We remove failed blacktop, soft soil, and vegetation first when the edges or subgrade will not support another lift. The free site visit decides whether you need overlay, full-depth paving, or repair only.",
   },
   {
-    question: "What should I look for in a Pocatello paving contractor?",
+    question: `What should I look for in a ${business.city} paving contractor?`,
     answer:
       "Look for a written scope that lists square footage, base prep, thickness, and drainage — not just a single price per square foot. The crew should explain when an overlay is a mistake, carry insurance, and give a return-to-traffic time after paving. We provide free on-site estimates so you can compare those details before you hire.",
   },
   {
-    question: "Do you handle both residential and commercial paving in Pocatello?",
+    question: `Do you handle residential and commercial paving in ${business.city}?`,
     answer:
       "Yes. Residential paving covers asphalt driveways, blacktop replacement, and long approaches. Commercial paving covers parking lot paving, parking lot repair, and private lanes at shops, churches, apartments, and small yards. The prep and thickness change with traffic; the free site visit sets that before we quote.",
   },
