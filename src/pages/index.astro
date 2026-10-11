@@ -94,7 +94,13 @@ const description =
     <div class="mx-auto max-w-6xl px-5">
       <h2 class="text-3xl font-bold">Why property owners call us</h2>
       <p class="prose-measure mt-4 text-graphite">
-        The right paving contractor will tell you when an overlay is a mistake. These are the standards we hold on every {business.city} asphalt paving project — residential, commercial, and private-road work.
+        The right paving contractor will tell you when an overlay is a mistake. These are the standards we hold on every {business.city}{" "}
+        {config.outboundLink ? (
+          <a class="font-semibold underline decoration-sun decoration-2 underline-offset-4" href={config.outboundLink.href} target="_blank" rel="noopener noreferrer">{config.outboundLink.text}</a>
+        ) : (
+          "asphalt paving"
+        )}{" "}
+        project — residential, commercial, and private-road work.
       </p>
       <div class="mt-10">
         <WhyChoose />

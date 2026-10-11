@@ -45,6 +45,10 @@
     { "days": "Saturday", "time": "9 AM–4 PM" },
     { "days": "Sunday", "time": "Closed" }
   ],
+  "outboundLink": {
+    "href": "http://lasvegasasphaltservices.com",
+    "text": "asphalt paving"
+  },
   "serviceOptions": [
     "Asphalt Driveway Paving",
     "Asphalt Parking Lot",

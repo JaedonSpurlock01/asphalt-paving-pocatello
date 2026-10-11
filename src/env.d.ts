@@ -35,6 +35,7 @@ declare module "virtual:site" {
     socials: { name: string; href: string }[];
     hours: { days: string; time: string }[];
     serviceOptions: string[];
+    outboundLink?: { href: string; text: string };
   }
 
   const config: SiteConfig;

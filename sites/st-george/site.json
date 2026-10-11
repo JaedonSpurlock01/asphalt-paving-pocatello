@@ -45,6 +45,10 @@
     { "days": "Saturday", "time": "Closed" },
     { "days": "Sunday", "time": "Closed" }
   ],
+  "outboundLink": {
+    "href": "https://pocatelloasphaltpaving.com",
+    "text": "asphalt paving"
+  },
   "serviceOptions": [
     "Asphalt Driveway Paving",
     "Asphalt Parking Lot",
