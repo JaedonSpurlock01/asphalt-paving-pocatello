@@ -45,6 +45,16 @@
     { "days": "Saturday", "time": "Closed" },
     { "days": "Sunday", "time": "Closed" }
   ],
+  "outboundLinks": [
+    {
+      "href": "https://pocatelloasphaltpaving.com/",
+      "text": "asphalt paving"
+    },
+    {
+      "href": "https://asphaltpavingstgeorge.com/",
+      "text": "asphalt paving"
+    }
+  ],
   "serviceOptions": [
     "Asphalt Driveway Paving",
     "Asphalt Parking Lot",

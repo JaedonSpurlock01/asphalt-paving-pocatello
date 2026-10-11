@@ -36,6 +36,7 @@ declare module "virtual:site" {
     hours: { days: string; time: string }[];
     serviceOptions: string[];
     outboundLink?: { href: string; text: string };
+    outboundLinks?: { href: string; text: string }[];
   }
 
   const config: SiteConfig;

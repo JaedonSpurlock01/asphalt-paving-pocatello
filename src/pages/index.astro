@@ -14,6 +14,7 @@ import { faqPageSchema } from "../data/schema";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const extraSchemas = [faqPageSchema(faqs)];
+const outboundLinks = config.outboundLinks ?? (config.outboundLink ? [config.outboundLink] : []);
 const heroBackground = siteAssets.hero;
 
 const title = `${business.city} Paving Contractor | Driveways, Lots, Repair & Sealcoating`;
@@ -95,8 +96,8 @@ const description =
       <h2 class="text-3xl font-bold">Why property owners call us</h2>
       <p class="prose-measure mt-4 text-graphite">
         The right paving contractor will tell you when an overlay is a mistake. These are the standards we hold on every {business.city}{" "}
-        {config.outboundLink ? (
-          <a class="font-semibold underline decoration-sun decoration-2 underline-offset-4" href={config.outboundLink.href} target="_blank" rel="noopener noreferrer">{config.outboundLink.text}</a>
+        {outboundLinks[0] ? (
+          <a class="font-semibold underline decoration-sun decoration-2 underline-offset-4" href={outboundLinks[0].href} target="_blank" rel="noopener noreferrer">{outboundLinks[0].text}</a>
         ) : (
           "asphalt paving"
         )}{" "}
@@ -112,7 +113,13 @@ const description =
     <div class="mx-auto max-w-6xl px-5">
       <h2 class="text-3xl font-bold">Asphalt services</h2>
       <p class="prose-measure mt-4">
-        Each service has its own page with the process, limits, and a way to ask for a free estimate. {business.city} asphalt paving starts with the surface you have — whether you need driveway paving, parking lot paving, pothole repair, crack sealing, or sealcoating.
+        Each service has its own page with the process, limits, and a way to ask for a free estimate. {business.city}{" "}
+        {outboundLinks[1] ? (
+          <a class="font-semibold underline decoration-sun decoration-2 underline-offset-4" href={outboundLinks[1].href} target="_blank" rel="noopener noreferrer">{outboundLinks[1].text}</a>
+        ) : (
+          "asphalt paving"
+        )}{" "}
+        starts with the surface you have — whether you need driveway paving, parking lot paving, pothole repair, crack sealing, or sealcoating.
       </p>
       <ServicesGrid />
     </div>
